@@ -98,7 +98,8 @@ module Fluent
     end
 
     def generate_id
-      @tag_property_name + Time.now.to_i.to_s
+      charset = %w{ 1 2 3 4 6 7 9 A C D E F G H J K M N P Q R T V W X Y Z }
+      (0...80).map{ charset.to_a[rand(charset.size)] }.join
     end
   end
 end
